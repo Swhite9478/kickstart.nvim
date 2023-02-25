@@ -264,10 +264,17 @@ require('telescope').setup {
   },
 }
 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>pf', builtin.find_files, {desc = "[P]roject search"})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {desc = "[G]it search"})
+vim.keymap.set('n', '<leader>ps', function ()
+  builtin.grep_string({ search = vim.fn.input("Grep > ") });
+end, {desc = "[G]rep search"})
+
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
--- See `:help telescope.builtin`
+-- See `:help telescope.builtin`)
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
@@ -295,6 +302,10 @@ api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {desc = '[M]inimize/
 api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {desc = '[Z]en mode'})
 
 
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc = "[E]xplore the file tree from cwd"})
+vim.keymap.set("n", "<leader>sex", vim.cmd.Sexplore, {desc = "[E]xplore the file tree from cwd horizontally"})
+vim.keymap.set("n", "<leader>vex", vim.cmd.Vexplore, {desc = "[E]xplore the file tree from cwd vertically"})
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
@@ -304,7 +315,7 @@ require('nvim-treesitter.configs').setup {
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = true,
 
-  highlight = { enable = true },
+  highlight = { enable = true, additional_vim_regex_highlighting = false },
   indent = { enable = true, disable = { 'python' } },
   incremental_selection = {
     enable = true,

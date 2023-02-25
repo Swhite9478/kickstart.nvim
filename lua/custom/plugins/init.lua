@@ -1,4 +1,5 @@
 return {
 	{'mbbill/undotree'},
-	{'Pocco81/true-zen.nvim'}
+	{'Pocco81/true-zen.nvim'},
+	{'tpope/vim-capslock'}
 }
