@@ -287,20 +287,11 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 
 
 -- CUSTOM KEYMAPS --
-local api = vim.api
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-
-api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {desc = '[N]arrow a text region for better focus'})
-api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {desc = '[N]arrow a text region for better focus'})
-api.nvim_set_keymap("n", "<leader>zf", ":TZFocus<CR>", {desc = '[F]ocus the current window'})
-api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {desc = '[M]inimize/disable ui components (e.g. numbers, tabline, statusline)'})
-api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {desc = '[Z]en mode'})
-
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc = "[E]xplore the file tree from cwd"})
 vim.keymap.set("n", "<leader>sex", vim.cmd.Sexplore, {desc = "[E]xplore the file tree from cwd horizontally"})
