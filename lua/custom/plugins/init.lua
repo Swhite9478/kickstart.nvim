@@ -1,5 +1,7 @@
 return {
 	{'mbbill/undotree'},
 	{'Pocco81/true-zen.nvim'},
-	{'tpope/vim-capslock'}
+	{'tpope/vim-capslock'},
+	{'nvim-treesitter/playground'},
+	{'theprimeagen/harpoon'},
 }
