@@ -93,7 +93,7 @@ require('lazy').setup({
 
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path','hrsh7th/cmp-nvim-lua', 'rafamadriz/friendly-snippets'},
   },
 
   -- Useful plugin to show you pending keybinds.
@@ -297,6 +297,10 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc = "[E]xplore the file tree f
 vim.keymap.set("n", "<leader>sex", vim.cmd.Sexplore, {desc = "[E]xplore the file tree from cwd horizontally"})
 vim.keymap.set("n", "<leader>vex", vim.cmd.Vexplore, {desc = "[E]xplore the file tree from cwd vertically"})
 
+vim.keymap.set("n", "<leader>tkm", function ()
+   vim.cmd( { cmd = 'Telescope', args = {'keymaps'}})
+end, {desc = "[T]elescope keymaps"})
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
@@ -424,7 +428,8 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
+  eslint = {},
 
   lua_ls = {
     Lua = {
