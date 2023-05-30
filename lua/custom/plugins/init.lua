@@ -4,4 +4,5 @@ return {
 	{'tpope/vim-capslock'},
 	{'nvim-treesitter/playground'},
 	{'theprimeagen/harpoon'},
+	{'christoomey/vim-tmux-navigator'},
 }
